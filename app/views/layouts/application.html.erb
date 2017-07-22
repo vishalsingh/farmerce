@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- basic page needs
+   ================================================== -->
+   <meta charset="utf-8">
+  <title>Farmerce</title>
+ 
+  <meta name="description" content="">  
+  <meta name="author" content="">
+
+   <!-- mobile specific metas
+   ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <%= csrf_meta_tags %>
+  <!-- CSS==================================================  --> 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>   
+
+   <!-- script==================================================-->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+   <!-- favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+  <!-- header 
+   ================================================== -->
+   <header class="short-header">   
+
+    <div class="gradient-block"></div>  
+
+    <div class="row header-content">
+
+      <div class="logo">
+           <a href="index.html">Author</a>
+        </div>
+
+      <nav id="main-nav-wrap">
+        <ul class="main-navigation sf-menu">
+          <li class="current"><a href="index.html" title="">Home</a></li>                 
+          <li class="has-children">
+            <a href="category.html" title="">Categories</a>
+            <ul class="sub-menu">
+                  <li><a href="category.html">Wordpress</a></li>
+                  <li><a href="category.html">HTML</a></li>
+                  <li><a href="category.html">Photography</a></li>
+                  <li><a href="category.html">UI</a></li>
+                  <li><a href="category.html">Mockups</a></li>
+                  <li><a href="category.html">Branding</a></li>
+               </ul>
+          </li>
+          <li class="has-children">
+            <a href="single-standard.html" title="">Blog</a>
+            <ul class="sub-menu">
+                  <li><a href="single-video.html">Video Post</a></li>
+                  <li><a href="single-audio.html">Audio Post</a></li>
+                  <li><a href="single-gallery.html">Gallery Post</a></li>
+                  <li><a href="single-standard.html">Standard Post</a></li>
+               </ul>
+          </li>
+          <li><%= link_to 'New video', new_video_path, :class => "nav-link" %></li>
+
+            <% if current_user.present? %>
+              <li><%= link_to 'Edit Profile', edit_user_registration_path(current_user), :class => 'btn btn-primary' %></li>
+              <li><%= link_to 'Signout', destroy_user_session_path,:method => :delete,:class => 'btn btn-primary' %></li>
+            <%else %>
+              <li><%= link_to 'Signin', user_session_path, :class => 'btn btn-primary' %></li>
+              <li><%= link_to 'Register', new_user_registration_path, :class => 'btn btn-primary' %><li>
+            <%end%>
+
+          <li><a href="#" title="">About</a></li>  
+          <li><a href="#" title="">Contact</a></li>                    
+        </ul>
+      </nav> <!-- end main-nav-wrap -->
+
+      <div class="search-wrap">
+        
+        <form role="search" method="get" class="search-form" action="#">
+          <label>
+            <span class="hide-content">Search for:</span>
+            <input type="search" class="search-field" placeholder="Type Your Keywords" value="" name="s" title="Search for:" autocomplete="off">
+          </label>
+          <input type="submit" class="search-submit" value="Search">
+        </form>
+
+        <a href="#" id="close-search" class="close-btn">Close</a>
+
+      </div> <!-- end search wrap --> 
+
+      <div class="triggers">
+        <a class="search-trigger" href="#"><i class="fa fa-search"></i></a>
+        <a class="menu-toggle" href="#"><span>Menu</span></a>
+      </div> <!-- end triggers -->  
+      
+    </div>        
+    
+   </header> <!-- end header -->
+      
+    <% flash.each do |name, msg| %>
+      <% if msg.is_a?(String) %>
+        <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= yield %>
+   
+   <!-- footer
+   ================================================== -->
+    <%= render 'layouts/footer'%> 
+   <!-- end footer-bottom --> 
+
+   <div id="preloader"> 
+      <div id="loader"></div>
+   </div> 
+</body>
+
+</html>

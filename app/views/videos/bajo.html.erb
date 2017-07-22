@@ -1,0 +1,23 @@
+<div class="container">
+
+<p>
+  <strong>Title:</strong>
+  <%= @video.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @video.description %>
+</p>
+
+<p>
+ 
+   <video src="<%=  @video.archive_video(:medium) %>" poster="<%=  @video.archive_video(:cuadro1) %>" controls >
+
+  Tu navegador no implementa el elemento <code>video</code>.
+</video>
+</p>
+<!-- <a href="/videos/<%#= @video.id%>">Resolution</a>  | -->
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'List', videos_path %>
+</div>

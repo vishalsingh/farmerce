@@ -1,0 +1,33 @@
+<div class="container">
+<p>
+  <strong>Titulo:</strong>
+  <%= @video.title %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @video.description %>
+</p>
+
+<p>
+ 
+   <video src="<%= @video.archive_video %>" poster="<%=  @video.archive_video(:cuadro1) %>" controls>
+    <code>video</code>.
+</video>
+</p>
+<!-- <a href="/videos/bajaresolucion/<%#= @video.id%>"> Resolusion </a> | -->
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'List', videos_path %> |
+<%= social_share_button_tag("Show Page", :url => "http://localhost:3000/videos/#{@video.id}") %>
+</div>
+
+<h3>Comments</h3>
+
+<%= form_for [@video, Comment.new] do |f| %>
+<%= f.text_area :body, placeholder: "Add a comment" %><br/>
+<%= f.submit "Add Comment" %>
+<% end %>
+
+<ul>
+  <%= render(partial: 'comments/comment', collection: @video.comments) %>
+</ul>
