@@ -10,10 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery-2.1.3.min.js
 //= require modernizr.js
 //= require pace.min.js
-//= require jquery
-//= require jquery_ujs
 //= require plugins.js
 //= require main.js
 //= require social-share-button
