@@ -13,6 +13,5 @@
  *= require base.css
  *= require vendor.css
  *= require main.css
- *= require_self
  *= require social-share-button
  */

@@ -6,7 +6,7 @@ before_action :find_commentable
     end
 
     def create
-      @comment = @commentable.comments.new comment_params
+      @comment = @commentable.comments.new comment_params.merge(user_id: current_user.id)
 
       if @comment.save
 

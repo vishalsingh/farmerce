@@ -40,14 +40,24 @@
 
     <div class="row header-content">
 
-      <div class="logo">
-           <a href="index.html">Author</a>
-        </div>
+     <!--  <div class="logo">
+           <%#= link_to 'Home', root_path %> 
+        </div> -->
+
+           <div class="logo_with_text">
+               <%= link_to root_path, class: "thumb-link" do %>
+                       <%= image_tag ('logo.png') %>
+                       <h2>Farmerce</h2>
+                <% end %>
+                
+            </div>
+        
 
       <nav id="main-nav-wrap">
         <ul class="main-navigation sf-menu">
-          <li class="current"><a href="index.html" title="">Home</a></li>                 
-          <li class="has-children">
+          <!-- <li class="current"><%#= link_to 'Home', root_path %></li>   -->
+          <%= nav_link 'Home', root_path  %>              
+          <!-- <li class="has-children">
             <a href="category.html" title="">Categories</a>
             <ul class="sub-menu">
                   <li><a href="category.html">Wordpress</a></li>
@@ -57,8 +67,8 @@
                   <li><a href="category.html">Mockups</a></li>
                   <li><a href="category.html">Branding</a></li>
                </ul>
-          </li>
-          <li class="has-children">
+          </li> -->
+          <!-- <li class="has-children">
             <a href="single-standard.html" title="">Blog</a>
             <ul class="sub-menu">
                   <li><a href="single-video.html">Video Post</a></li>
@@ -66,19 +76,19 @@
                   <li><a href="single-gallery.html">Gallery Post</a></li>
                   <li><a href="single-standard.html">Standard Post</a></li>
                </ul>
-          </li>
-          <li><%= link_to 'New video', new_video_path, :class => "nav-link" %></li>
+          </li> -->
+          <li><%= nav_link 'Add video', new_video_path %></li>
 
             <% if current_user.present? %>
-              <li><%= link_to 'Edit Profile', edit_user_registration_path(current_user), :class => 'btn btn-primary' %></li>
-              <li><%= link_to 'Signout', destroy_user_session_path,:method => :delete,:class => 'btn btn-primary' %></li>
+              <li><%#= nav_link 'Edit Profile', edit_user_registration_path(current_user) %></li>
+              <li><%= link_to 'Signout', destroy_user_session_path,:method => :delete %></li>
             <%else %>
-              <li><%= link_to 'Signin', user_session_path, :class => 'btn btn-primary' %></li>
-              <li><%= link_to 'Register', new_user_registration_path, :class => 'btn btn-primary' %><li>
+              <li><%= nav_link 'Signin', user_session_path %></li>
+              <li><%= nav_link 'Register', new_user_registration_path %><li>
             <%end%>
 
-          <li><a href="#" title="">About</a></li>  
-          <li><a href="#" title="">Contact</a></li>                    
+       <!--    <li><a href="#" title="">About</a></li>  
+          <li><a href="#" title="">Contact</a></li>   -->                  
         </ul>
       </nav> <!-- end main-nav-wrap -->
 
@@ -107,8 +117,9 @@
       
     <% flash.each do |name, msg| %>
       <% if msg.is_a?(String) %>
-        <div class="alert alert-<%= name.to_s == 'notice' ? 'success' : 'danger' %>">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <div class="alert-box  hideit ss-<%= name.to_s == 'notice' ? 'success' : 'error' %>">
+          <i class="fa fa-times close" data-dismiss="alert" aria-hidden="true" ></i>
+          <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> -->
           <%= content_tag :div, msg, :id => "flash_#{name}" %>
         </div>
       <% end %>

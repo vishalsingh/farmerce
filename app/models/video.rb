@@ -1,7 +1,9 @@
 class Video < ApplicationRecord
 	has_many :comments, as: :commentable
-
-
+	belongs_to :user
+    validates :title, presence: true
+    validates :description, presence: true
+    validates :archive_video, presence: true
 	has_attached_file :archive_video, :styles => {
     :medium => { :geometry => "640x480", :format => 'mp4' },
     :cuadro1 => { :geometry => "640x480#", :format => 'jpg', :time => 1 },

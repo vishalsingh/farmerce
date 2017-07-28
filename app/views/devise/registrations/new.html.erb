@@ -1,34 +1,39 @@
-<h2>Sign up</h2>
+<!-- content ================================================== -->
+<section id="content-wrap" class="site-page">
+  <div class="row">
+    <div class="col-twelve">
+      <section>  
+          <div class="primary-content">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+            <h1 class="entry-title add-bottom">Register</h1> 
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                   <div class="alert-box  hideit ss-error %>">
+                      <!-- <i class="fa fa-times close" data-dismiss="alert" aria-hidden="true" ></i> -->
+                      <%= devise_error_messages! %>
+                    </div>
+                  
+            
+                 <fieldset>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+                       <div class="form-field">
+                         <%= f.email_field :email, id: :email, :class=> 'full-width', :placeholder=>"Email(Optional)", autofocus: true  %>
+                       </div>
+                       <div class="form-field">
+                         <%= f.text_field :mobile_number, id: :mobile_number, :class=> 'full-width', :placeholder=>"Mobile Number", autofocus: true  %>
+                       </div>
 
-  <div class="field">
-    <%= f.label :mobile_number %><br />
-    <%= f.text_field :mobile_number %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+                       <div class="form-field">
+                        <%= f.password_field :password, id: :password, :class=> 'full-width', :placeholder=>"Password",autocomplete: "off"   %>
+                       </div>
+                       <div class="form-field">
+                        <%= f.password_field :password_confirmation, id: :password_confirmation, :class=> 'full-width', :placeholder=>"Password Confirmation",autocomplete: "off"   %>
+                       </div>
+                        <%= f.submit 'Register', :class=>"submit button-primary full-width-on-mobile"%>
+                 </fieldset>
+                <%end%> <!-- end form --><%#= render "devise/shared/links" %>
+            </div>
+            
+        </section>
+    </div> <!-- end col-twelve -->
+  </div> <!-- end row -->   
+</section>

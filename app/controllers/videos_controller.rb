@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy, :bajo]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /videos
   # GET /videos.json
   def index
@@ -27,13 +27,13 @@ class VideosController < ApplicationController
   # POST /videos
   # POST /videos.json
   def create
-    @video = Video.new(video_params)
-
+    @video = Video.new(video_params.merge(user_id: current_user.id))
     respond_to do |format|
       if @video.save
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
       else
+
         format.html { render :new }
         format.json { render json: @video.errors, status: :unprocessable_entity }
       end

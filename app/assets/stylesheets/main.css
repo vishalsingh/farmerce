@@ -1609,6 +1609,25 @@ header .logo a {
 	transition: all 0.5s ease-in-out;
 }
 
+.logo_with_text {
+	position: absolute;
+	left: 35px;
+	top: 6px;
+	z-index: 601;
+}
+
+.logo_with_text img {
+  float: left;
+  width: 60px;
+  height: 60px;
+}
+
+.logo_with_text h2 {
+  position: absolute;
+  top: 18px;
+  left: 60px;
+}
+
 /* responsive:
  * header logo
  * ------------------------------------------------------------------- */
@@ -2730,7 +2749,7 @@ footer ul li {
 }
 
 .blog-single .tags {
-	margin: 6rem 0 4.2rem;
+	/*margin: 6rem 0 4.2rem;*/
 }
 
 .blog-single .tags span {

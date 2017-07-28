@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20170721134806) do
     t.text "body"
     t.integer "commentable_id"
     t.string "commentable_type"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170721134806) do
   create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.string "description"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "archive_video_file_name"

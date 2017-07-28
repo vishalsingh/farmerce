@@ -1,34 +1,35 @@
-<%= form_with(model: video, local: true, html: { multipart: true }) do |form| %>
-  <% if video.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
+<section>  
 
-      <ul>
-      <% video.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-<div class="col-md-6 col-lg-6 col-sm-12">
-  <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :video_title, :class=> 'form-control' %>
-  </div>
+          <div class="primary-content">
 
-  <div class="form-group">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :video_description, :class=> 'form-control' %>
-  </div>
+            <h1 class="entry-title add-bottom">Add Video</h1> 
+            <%= form_with(model: video, local: true, html: { multipart: true}) do |form| %>
+              <% if video.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
 
-  <div class="form-group">
-    <%= form.label :archive_video %>
-    <%= form.file_field :archive_video, id: :video_archive_video, :class=> 'form-control' %>
-  </div>
+                  <ul>
+                  <% video.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+                 <fieldset>
 
-  <div class="form-group">
-    <%= form.submit %>
-  </div>
-<% end %>
+                       <div class="form-field">
+                         <%= form.text_field :title, id: :video_title, :class=> 'full-width', :placeholder=>"Video Title" %>
+                       </div>
 
-</div>
+                       <div class="message form-field">
+                        <%= form.text_area :description, id: :video_description, :class=> 'full-width', :placeholder=>"Video Description"  %>
+                       </div>
+
+                       <div class="form-field">
+                        <%= form.file_field :archive_video, id: :video_archive_video, :class=> 'full-width', :placeholder=>"Upload Video"  %>
+                       </div>
+                        <%= form.submit 'Create', :class=>"submit button-primary full-width-on-mobile"%>
+                 </fieldset>
+                <%end%> <!-- end form -->
+            </div>
+        </section>
