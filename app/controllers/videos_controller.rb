@@ -74,4 +74,9 @@ class VideosController < ApplicationController
     def video_params
       params.require(:video).permit(:title, :description, :archive_video)
     end
+    private
+
+    def bscenes_params
+        params.require(:post).permit(:video)
+    end
 end

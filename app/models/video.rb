@@ -11,7 +11,8 @@ class Video < ApplicationRecord
     :cuadro3 => { :geometry => "640x480#", :format => 'jpg', :time => 50 },
     :cuadro4 => { :geometry => "640x480#", :format => 'jpg', :time => 100 }
   }, :processors => [:transcoder]
+    validates_attachment_content_type :video, content_type: /\Avideo\/.*\Z/
 
-	do_not_validate_attachment_file_type :archive_video
+	#do_not_validate_attachment_file_type :archive_video
 
 end
