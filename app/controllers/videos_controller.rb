@@ -69,6 +69,7 @@ class VideosController < ApplicationController
     def set_video
       @video = Video.find(params[:id])
     end
+    private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
