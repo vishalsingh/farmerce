@@ -3,6 +3,7 @@ class VideosController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   # GET /videos
   # GET /videos.json
+  
   def index
     @videos = Video.all
   end
