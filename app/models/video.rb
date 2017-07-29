@@ -14,14 +14,13 @@ class Video < ApplicationRecord
 
 
  has_attached_file :archive_video, styles: {
-        :medium => {
-          :geometry => "640x480",
-          :format => 'mp4'
-        },
-        :cuadro1 => { :geometry => "910x521", :format => 'jpg', :time => 1 },
-        :thumb => { :geometry => "160x120", :format => 'jpeg', :time => 10}
+        :medium => {:geometry => "640x480", :format => 'flv'},
+        :thumb => { :geometry => "100x100#", :format => 'jpg', :time => 10 },
+        :cuadro1 => { :geometry => "910x521", :format => 'jpg', :time => 1 }
     }, :processors => [:transcoder]
-    validates_attachment_content_type :archive_video, content_type: /\Avideo\/.*\Z/
+    #validates_attachment_content_type :archive_video, content_type: /\Avideo\/.*\Z/
+    validates_attachment_content_type :archive_video, :content_type => ["video/mp4", "video.mov", "video/mpeg","video/mpeg4"]
+
 	# do_not_validate_attachment_file_type :archive_video
 
 end
