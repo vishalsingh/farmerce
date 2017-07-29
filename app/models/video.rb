@@ -3,6 +3,7 @@ class Video < ApplicationRecord
 	belongs_to :user
     validates :title, presence: true
     validates :description, presence: true
+    
      has_attached_file :archive_video, styles: {
         :medium => {
           :geometry => "640x480",
