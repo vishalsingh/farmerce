@@ -34,10 +34,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem "paperclip"
-#gem 'aws-sdk', '< 2.0'
+gem 'paperclip', '~> 4.3.1'
+gem 'aws-sdk', '< 2.0'
 gem 'paperclip-av-transcoder'
-gem "paperclip-ffmpeg"
+gem "paperclip-ffmpeg", "~> 1.2.0"
 gem 'social-share-button', '~> 0.1.6'
 gem 'devise'
 gem 'twilio-ruby', '~> 4.0.0'
