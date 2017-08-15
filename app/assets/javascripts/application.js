@@ -17,3 +17,17 @@
 //= require main.js
 //= require social-share-button
 //= require_tree .
+
+$(document).ready(function() {
+  if ($('.pagination').length) {
+    $(window).scroll(function() {
+      var url = $('.pagination .next_page').attr('href');
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+      	$('.pagination').show();
+        $('.pagination').html("<div id='spinner'></div>");
+        return $.getScript(url);
+      }
+    });
+    return $(window).scroll();
+  }
+});

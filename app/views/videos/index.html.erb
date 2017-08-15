@@ -15,106 +15,61 @@
                 
 
                 <li>
-                  <div class="featured-post-slide">
+                  <div class="featured-post-slide" style: "width: 101%;">
+                      
+              
+                    <div class="post-background">
+                        <!-- <div class="fluid-video-wrapper"> -->
 
-                    <div class="post-background" style="background-image:url('<%= asset_path 'wheat1.jpg' %>');"></div>
+                        <video style="height:71%;" src="<%= @videos.first.archive_video %>" poster="<%=  @videos.first.archive_video(:cuadro1) %>" controls>
+                          <code>video</code>.
+                        <!-- </div> -->
+                     </video><br><br>
+                     <div class="entry-text" style="height: 23%;">
+                      <div class="entry-header">
 
-                    <div class="overlay"></div>           
-
-                    <div class="post-content">
-                      <ul class="entry-meta">
-                        <li>September 06, 2016</li> 
-                        <li><a href="#" >Naruto Uzumaki</a></li>        
-                      </ul> 
-
-                      <h1 class="slide-title"><a href="single-standard.html" title="">Lorem ipsum Ut velit dolor</a></h1> 
-                    </div>                      
-                
-                  </div>
-                </li> <!-- /slide -->
-
-                <li>
-                  <div class="featured-post-slide">
-
-                    <div class="post-background" style="background-image:url('<%= asset_path 'farmer.jpg' %>');"></div>
-
-                    <div class="overlay"></div>           
-
-                    <div class="post-content">
-                      <ul class="entry-meta">
-                        <li>September 06, 2016</li> 
-                        <li><a href="#" >Naruto Uzumaki</a></li>        
-                      </ul> 
-
-                      <h1 class="slide-title"><a href="single-standard.html" title="">Lorem ipsum Ut velit dolor</a></h1> 
-                    </div>                      
-                
-                  </div>
-                </li> <!-- /slide -->
-
-                <li>
-                  <div class="featured-post-slide">
-
-                    <div class="post-background" style="background-image:url('<%= asset_path 'farm1.jpg' %>');"></div>
-
-                    <div class="overlay"></div>           
-
-                    <div class="post-content">
-                      <ul class="entry-meta">
-                        <li>August 27, 2016</li>
-                        <li><a href="#" class="author">Naruto Uzumaki</a></li>          
-                      </ul> 
-
-                      <h1 class="slide-title"><a href="single-standard.html" title="">Lorem ipsum Ut velit dolor</a></h1>
+                        <div class="entry-meta">
+                          <span class="cat-links">
+                            <a href="#">#English</a>                        
+                          </span>     
+                        </div>
+                        <h1 class="entry-title"><%= link_to "#{@videos.first.title}", @videos.first %>
+                      </div>
+                      <div class="entry-excerpt">
+                        <%= @videos.first.description %>
+                      </div>
+                     </div>
                     </div>
+                    
 
+                    <!-- <div class="overlay"></div>            -->
+
+                    <!-- <div class="post-content">
+                      <ul class="entry-meta">
+                        <li>September 06, 2016</li> 
+                        <li><a href="#" >Naruto Uzumaki</a></li>        
+                      </ul> 
+
+                      <h1 class="slide-title"><a href="single-standard.html" title="">Lorem ipsum Ut velit dolor</a></h1> 
+                    </div>  -->                     
+                
                   </div>
-                </li> <!-- end slide -->
+                </li> <!-- /slide -->
 
               </ul> <!-- end slides -->
             </div> <!-- end featured-post-slider -->              
             </div> <!-- end entry content -->             
-          </div>
-          <% if @videos.present? %>
-           <% @videos.each do |video| %>
-            <article class="brick entry format-standard animate-this">
-
-                 <div class="entry-thumb video-image">
-                    <%= link_to video_path(video), class: "thumb-link" do %>
-                      <%= image_tag video.archive_video.url(:cuadro2)%>
-                    <% end %>
-                   
-                    <!-- <a href="single-standard.html" class="thumb-link">
-                      <%= image_tag video.archive_video.url(:cuadro1) %>             
-                    </a> -->
-                 </div>
-
-                 <div class="entry-text">
-                  <div class="entry-header">
-
-                    <div class="entry-meta">
-                      <span class="cat-links">
-                        <a href="#">#English</a>                        
-                      </span>     
-                    </div>
-
-                    <h1 class="entry-title"><%= link_to "#{video.title}", video %>
-                    
-                  </div>
-              <div class="entry-excerpt">
-                <%= video.description %>
-              </div>
-                 </div>
-
-              </article> <!-- end article -->
-            <%end%>
-            <%end%>
+          </div>              
+              <%= render partial: 'video' %>
+              <div id="videos"></div>
+    
          </div> <!-- end brick-wrapper --> 
 
     </div> <!-- end row -->
 
     <div class="row">
-      
+          <%= will_paginate @videos, hidden: true %>
+        <%#= will_paginate @videos%>
       <!-- <nav class="pagination">
           <span class="page-numbers prev inactive">Prev</span>
         <span class="page-numbers current">1</span>

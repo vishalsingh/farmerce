@@ -1,0 +1,26 @@
+<% if @videos.present? %>
+  <% @videos.each do |video| %>
+    <article class="brick entry format-standard animate-this" >
+      <div class="entry-thumb video-image">
+        <%= link_to video_path(video), class: "thumb-link" do %>
+          <%= image_tag video.archive_video.url(:cuadro2)%>
+        <% end %>
+      </div>
+
+      <div class="entry-text">
+        <div class="entry-header">
+
+          <div class="entry-meta">
+            <span class="cat-links">
+              <a href="#">#English</a>                        
+            </span>     
+          </div>
+          <h1 class="entry-title"><%= link_to "#{video.title}", video %>
+        </div>
+        <div class="entry-excerpt">
+          <%= video.description %>
+        </div>
+      </div>
+    </article> <!-- end article -->
+  <%end%>
+<%end%>
