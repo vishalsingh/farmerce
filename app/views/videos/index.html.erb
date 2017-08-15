@@ -13,7 +13,7 @@
               <ul class="slides">
 
                 
-
+                <% @latest_videos.each do |video| %>
                 <li>
                   <div class="featured-post-slide" style: "width: 101%;">
                       
@@ -21,7 +21,7 @@
                     <div class="post-background">
                         <!-- <div class="fluid-video-wrapper"> -->
 
-                        <video style="height:71%;" src="<%= @videos.first.archive_video %>" poster="<%=  @videos.first.archive_video(:cuadro1) %>" controls>
+                        <video style="height:71%;" src="<%= video.archive_video %>" poster="<%=  video.archive_video(:cuadro1) %>" controls>
                           <code>video</code>.
                         <!-- </div> -->
                      </video><br><br>
@@ -33,10 +33,10 @@
                             <a href="#">#English</a>                        
                           </span>     
                         </div>
-                        <h1 class="entry-title"><%= link_to "#{@videos.first.title}", @videos.first %>
+                        <h1 class="entry-title"><%= link_to "#{video.title}", video %>
                       </div>
                       <div class="entry-excerpt">
-                        <%= @videos.first.description %>
+                        <%= video.description.truncate(200, omission: '... (continued)') %>
                       </div>
                      </div>
                     </div>
@@ -55,6 +55,7 @@
                 
                   </div>
                 </li> <!-- /slide -->
+                <%end%>
 
               </ul> <!-- end slides -->
             </div> <!-- end featured-post-slider -->              

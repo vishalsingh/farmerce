@@ -1,4 +1,5 @@
 class Video < ApplicationRecord
+    scope :all_except, ->(latest_video) { where.not(id: latest_video) }
 	has_many :comments, as: :commentable
 	belongs_to :user
     validates :title, presence: true
