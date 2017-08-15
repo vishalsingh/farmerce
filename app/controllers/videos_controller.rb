@@ -1,11 +1,15 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy, :bajo]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :video_list]
   # GET /videos
   # GET /videos.json
   def index
     @latest_videos = Video.limit(3).order('created_at DESC')
     @videos = Video.all_except(@latest_videos).order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def video_list
+    @videos = Video.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /videos/1

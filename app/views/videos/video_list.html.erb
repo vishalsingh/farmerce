@@ -1,0 +1,33 @@
+<!-- page header
+================================================== -->
+<section id="page-header">
+	<div class="row current-cat">
+		<div class="col-full">
+			<h1>Category: Videos</h1>
+		</div>   		
+	</div>
+</section>
+
+   
+<!-- masonry
+================================================== -->
+<section id="bricks" class="with-top-sep">
+
+	<div class="row masonry">
+
+		<!-- brick-wrapper -->
+      <div class="bricks-wrapper">
+
+      	<div class="grid-sizer"></div>
+         <%= render partial: 'video' %>
+              <div id="videos"></div>
+         
+      </div> <!-- end brick-wrapper --> 
+
+	</div> <!-- end row -->
+
+	<div class="row">
+          <%= will_paginate @videos, hidden: true %>
+	</div>
+
+</section> <!-- bricks -->

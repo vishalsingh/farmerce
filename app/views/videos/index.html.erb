@@ -20,11 +20,16 @@
               
                     <div class="post-background">
                         <!-- <div class="fluid-video-wrapper"> -->
-
+                         <% if video.archive_video.present?%>
+          
                         <video style="height:71%;" src="<%= video.archive_video %>" poster="<%=  video.archive_video(:cuadro1) %>" controls>
                           <code>video</code>.
                         <!-- </div> -->
                      </video><br><br>
+                      <%else%>
+                        <a class="thumb-link">
+                        <%= image_tag ('novideo.png'),style: "height:71%;" %></a> <br>
+                      <%end%>
                      <div class="entry-text" style="height: 23%;">
                       <div class="entry-header">
 

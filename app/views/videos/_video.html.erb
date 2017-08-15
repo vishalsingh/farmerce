@@ -2,9 +2,14 @@
   <% @videos.each do |video| %>
     <article class="brick entry format-standard animate-this" >
       <div class="entry-thumb video-image">
-        <%= link_to video_path(video), class: "thumb-link" do %>
-          <%= image_tag video.archive_video.url(:cuadro2)%>
-        <% end %>
+        <% if video.archive_video.present?%>
+          <%= link_to video_path(video), class: "thumb-link" do %>
+            <%= image_tag video.archive_video.url(:cuadro2)%>
+          <% end %>
+        <%else%>
+          <a class="thumb-link">
+          <%= image_tag ('novideo.png') %></a>
+        <%end%>
       </div>
 
       <div class="entry-text">

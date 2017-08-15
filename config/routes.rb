@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: "videos#index"
   #resources :videos
   get 'videos/bajaresolucion/:id/', to: 'videos#bajo'
+  get 'videos/list', to: 'videos#video_list'
   resources :videos do
     resources :comments
   end

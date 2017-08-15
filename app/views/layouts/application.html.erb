@@ -76,10 +76,13 @@
                   <li><a href="single-standard.html">Standard Post</a></li>
                </ul>
           </li> -->
-          <li><%= nav_link 'Add video', new_video_path %></li>
+          <li><%= nav_link 'Video', videos_list_path %></li>
+          <li><%= nav_link 'Audio', "#" %></li>
+
 
             <% if current_user.present? %>
-              <li><%#= nav_link 'Edit Profile', edit_user_registration_path(current_user) %></li>
+               <li><%= nav_link 'Add video', new_video_path %></li>
+              <!-- <li><%#= nav_link 'Edit Profile', edit_user_registration_path(current_user) %></li> -->
               <li><%= link_to 'Signout', destroy_user_session_path,:method => :delete %></li>
             <%else %>
               <li><%= nav_link 'Signin', user_session_path %></li>
