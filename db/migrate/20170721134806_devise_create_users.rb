@@ -11,6 +11,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
       ## Rememberable
       t.datetime :remember_created_at
+       ## OmniAuth-able
+      t.string :provider
+      t.string :uid
 
       ## Trackable
       t.integer  :sign_in_count, default: 0, null: false
@@ -22,6 +25,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string   :mobile_number
       t.string   :verification_code
       t.boolean  :is_verified
+      t.string :name
 
       ## Confirmable
       # t.string   :confirmation_token

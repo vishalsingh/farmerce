@@ -3323,3 +3323,15 @@ footer ul li {
     width: 60px;
     height: 60px;
 }
+.or{
+	background: #111111;
+	border-radius: 40px;
+	color: #FFFFFF;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	height: 50px;
+	line-height: 50px;
+	margin-top: 75px;
+	text-align: center;
+	width: 50px;
+}

@@ -15,7 +15,9 @@
                   <%end%>
             
                  <fieldset>
-
+                      <div class="form-field">
+                         <%= f.text_field :name, id: :name, :class=> 'full-width', :placeholder=>"Name", autofocus: true  %>
+                       </div>
                        <div class="form-field">
                          <%= f.email_field :email, id: :email, :class=> 'full-width', :placeholder=>"Email(Optional)", autofocus: true  %>
                        </div>

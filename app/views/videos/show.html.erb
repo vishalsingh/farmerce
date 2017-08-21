@@ -41,6 +41,7 @@
 
 						<p class="lead"><%= @video.description %></p>
 						<%= social_share_button_tag("Show Page", :url => "http://localhost:3000/videos/#{@video.id}") %>
+						<a href='whatsapp://send?text="http://localhost:3000/videos/#{@video.id}'>Share on WhatsApp</a>
 <!-- 
 		  			   <div class="author-profile">
 		  			   	<img src="images/avatars/user-05.jpg" alt="">

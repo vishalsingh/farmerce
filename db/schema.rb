@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20170721134806) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "provider"
+    t.string "uid"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -38,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170721134806) do
     t.string "mobile_number"
     t.string "verification_code"
     t.boolean "is_verified"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

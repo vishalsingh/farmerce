@@ -1,11 +1,19 @@
 class Acme::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
-   before_action :configure_account_update_params, only: [:update]
+  before_action :sign_up_params, only: [:create]
+  before_action :account_update_params, only: [:update]
+   #before_action :configure_account_update_params, only: [:update]
 
-  def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update) << :mobile_number
+   def sign_up_params
+    devise_parameter_sanitizer.sanitize(:sign_up)
+   end
+
+   def account_update_params
+    devise_parameter_sanitizer.sanitize(:account_update)
   end
+  # def configure_account_update_params
+  #  # devise_parameter_sanitizer.for(:account_update) << { |u| u.permit(:name, :mobile_number) }
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:name, :mobile_number])
+  # end
 
   # GET /resource/sign_up
   # def new
@@ -62,4 +70,13 @@ class Acme::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private
+
+  def sign_up_params
+    params.require(:user).permit(:name, :mobile_number,:password, :password_confirmation)
+  end
+
+  def account_update_params
+    params.require(:user).permit(:name, :mobile_number,:password, :password_confirmation)
+  end
 end
