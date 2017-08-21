@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery-2.1.3.min.js
 //= require jquery_ujs
 //= require modernizr.js
 //= require pace.min.js
@@ -23,7 +23,7 @@ $(document).ready(function() {
   if ($('.pagination').length) {
     $(window).scroll(function() {
       var url = $('.pagination .next_page').attr('href');
-      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+      if (url && $(window).scrollTop() >= ($(document).height() - $(window).height())*0.5) {
       	$('.pagination').show();
         $('.pagination').html("<div id='spinner'></div>");
         return $.getScript(url);

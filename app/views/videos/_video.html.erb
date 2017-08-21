@@ -1,6 +1,6 @@
 <% if @videos.present? %>
   <% @videos.each do |video| %>
-    <article class="brick entry format-standard animate-this" >
+    <article class="brick entry animate-this" >
       <div class="entry-thumb video-image">
         <% if video.archive_video.present?%>
           <%= link_to video_path(video), class: "thumb-link" do %>
