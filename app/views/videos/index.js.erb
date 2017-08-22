@@ -4,7 +4,7 @@ $('#videos').append('<%= j render "video" %>');
 <% else %>
   $(window).off('scroll');
   $('.pagination').remove();
-  $('#request_video_div').fadeIn('slow');
+  $('#request_video_div').show();
 <% end %>
 $('.bricks-wrapper').masonry( 'reloadItems' );
 $('.bricks-wrapper').masonry( 'layout' );

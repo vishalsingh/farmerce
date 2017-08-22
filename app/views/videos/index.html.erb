@@ -7,65 +7,40 @@
 
           <div class="grid-sizer"></div>
 
-          <div class="brick entry featured-grid animate-this">
-            <div class="entry-content">
+          <div class="brick entry featured-grid animate-this" >
+            <div class="entry-content" style="background: #ffffff;">
+              <% if @latest_video.present?%> 
               <div id="featured-post-slider" class="flexslider">
-              <ul class="slides">
+                      <div class="entry-thumb video-image">
+                          <% if @latest_video.archive_video.present?%>  
+                           <video src="<%= @latest_video.archive_video %>" poster="<%=  @latest_video.archive_video(:cuadro1) %>" controls>
+                            <code>video</code>.
+                          </video>
+                        <%else%>
+                          <a class="thumb-link">
+                          <%= image_tag ('novideo.png') %></a>
+                        <%end%>
+                      </div>
 
-                
-                <% @latest_videos.each do |video| %>
-                <li>
-                  <div class="featured-post-slide" style: "width: 101%;">
-                      
-              
-                    <div class="post-background">
-                        <!-- <div class="fluid-video-wrapper"> -->
-                         <% if video.archive_video.present?%>
-          
-                        <video style="height:71%;" src="<%= video.archive_video %>" poster="<%=  video.archive_video(:cuadro1) %>" controls>
-                          <code>video</code>.
-                        <!-- </div> -->
-                     </video><br><br>
-                      <%else%>
-                        <a class="thumb-link">
-                        <%= image_tag ('novideo.png'),style: "height:71%;" %></a> <br>
-                      <%end%>
-                     <div class="entry-text" style="height: 23%;">
-                      <div class="entry-header">
+                      <div class="entry-text">
+                        <div class="entry-header">
 
-                        <div class="entry-meta">
-                          <span class="cat-links">
-                            <a href="#">#English</a>                        
-                          </span>     
+                          <div class="entry-meta">
+                            <span class="cat-links">
+                              <a href="#">#English</a>                        
+                            </span>     
+                          </div>
+                          <h1 class="entry-title"><%= link_to "#{@latest_video.title}", @latest_video %>
                         </div>
-                        <h1 class="entry-title"><%= link_to "#{video.title}", video %>
+                        <div class="entry-excerpt">
+                          <%= @latest_video.description %>
+                        </div>
                       </div>
-                      <div class="entry-excerpt">
-                        <%= video.description.truncate(200, omission: '... (continued)') %>
-                      </div>
-                     </div>
-                    </div>
-                    
-
-                    <!-- <div class="overlay"></div>            -->
-
-                    <!-- <div class="post-content">
-                      <ul class="entry-meta">
-                        <li>September 06, 2016</li> 
-                        <li><a href="#" >Naruto Uzumaki</a></li>        
-                      </ul> 
-
-                      <h1 class="slide-title"><a href="single-standard.html" title="">Lorem ipsum Ut velit dolor</a></h1> 
-                    </div>  -->                     
-                
-                  </div>
-                </li> <!-- /slide -->
-                <%end%>
-
-              </ul> <!-- end slides -->
-            </div> <!-- end featured-post-slider -->              
+              </div> <!-- end featured-post-slider -->  
+              <%end%>            
             </div> <!-- end entry content -->             
-          </div>              
+          </div>  
+
               <%= render partial: 'video' %>
               <div id="videos"></div>
              

@@ -4,8 +4,8 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    @latest_videos = Video.limit(3).order('created_at DESC')
-    @videos = Video.all_except(@latest_videos).order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
+    @latest_video = Video.limit(1).order('created_at DESC').first
+    @videos = Video.all_except(@latest_video).order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
 
   def video_list
