@@ -1,0 +1,13 @@
+<section>  
+  <div class="primary-content">
+    <h1 class="entry-title add-bottom">Tell us</h1> 
+    <%= form_with(model: want_to_see, local: true) do |form| %>
+      <fieldset>
+        <div class="message form-field">
+          <%= form.text_field :description, id: :want_to_see_description, :class=> 'full-width', :placeholder=>" Description"  %>
+        </div>
+        <%= form.submit 'Create', :class=>"submit button-primary full-width-on-mobile"%>
+      </fieldset>
+    <%end%> <!-- end form -->
+  </div>
+</section>

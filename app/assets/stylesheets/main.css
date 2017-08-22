@@ -2477,8 +2477,8 @@ header .logo a {
  *
  * ------------------------------------------------------------------- */
 footer {
-	padding-top: 9rem;
-	padding-bottom: 3rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 	font-size: 1.5rem;
 	color: #8E8E8E;
 }

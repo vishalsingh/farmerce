@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :video_requests
   #devise_for :users
   devise_for :users, :controllers => { :registrations => "acme/registrations"}
   post 'verifications' => 'verifications#create'

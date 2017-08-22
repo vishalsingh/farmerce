@@ -28,6 +28,7 @@
 
 	<div class="row">
           <%= will_paginate @videos, hidden: true %>
+          <div id="request_video_div" style="display:none;"><%= render "/video_requests/form.html.erb" %></div>
 	</div>
 
 </section> <!-- bricks -->

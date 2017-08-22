@@ -68,13 +68,15 @@
           </div>              
               <%= render partial: 'video' %>
               <div id="videos"></div>
-    
+             
          </div> <!-- end brick-wrapper --> 
 
     </div> <!-- end row -->
 
     <div class="row">
           <%= will_paginate @videos, hidden: true %>
+          <div id="request_video_div" style="display:none;"><%= render "/video_requests/form.html.erb" %></div>
+
         <%#= will_paginate @videos%>
       <!-- <nav class="pagination">
           <span class="page-numbers prev inactive">Prev</span>

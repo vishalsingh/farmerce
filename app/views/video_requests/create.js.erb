@@ -1,0 +1,10 @@
+$('#flash_message').show();
+<% if @video_request.errors.any? %>
+$("#flash_message").html('<div class="alert-box ss-error hideit" <p>Your request not submitted</p></div>')
+<%else%>
+$("#flash_message").html('<div class="alert-box ss-success hideit" <p>Your request successfully submitted</p></div>')
+$("#video_request_description").val('');
+<%end%>
+setTimeout(function() {
+    $('#flash_message').fadeOut('fast');
+}, 2000);

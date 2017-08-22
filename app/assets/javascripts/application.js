@@ -23,7 +23,7 @@ $(document).ready(function() {
   if ($('.pagination').length) {
     $(window).scroll(function() {
       var url = $('.pagination .next_page').attr('href');
-      if (url && $(window).scrollTop() >= ($(document).height() - $(window).height())*0.5) {
+      if (url && $(window).scrollTop() >= ($(document).height() - $(window).height())*0.98) {
       	$('.pagination').show();
         $('.pagination').html("<div id='spinner'></div>");
         return $.getScript(url);
